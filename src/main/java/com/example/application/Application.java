@@ -19,8 +19,8 @@ public class Application {
     }
 
     private static void printProcessTree(Consumer<String> printer) {
+        printer.accept("Process tree:");
         for (Info info : getProcessTree()) {
-            printer.accept("Process tree:");
             info.command().ifPresent(
                     value -> printer.accept("String cmd = \"" + value + "\";"));
             info.arguments().ifPresent(values -> {
